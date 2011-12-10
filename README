@@ -1,0 +1,20 @@
+A polyfill for <details> tag.
+Unfortunately, a seamless integration was unsuccessful.
+To manipulate <details> tags from Javascript, use our API:
+
+Know if a tag is open or no:
+	$('details').details()
+
+Open a tag
+	$('details').details('open')
+
+Close a tag
+	$('details').details('close')
+
+Event handlers:
+	$('details').details('open', function(){
+		console.log('Opened ', $(this));
+	});
+	$('details').details('close', function(){});
+
+This will also manipulate native implemenations.
