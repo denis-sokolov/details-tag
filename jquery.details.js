@@ -38,8 +38,11 @@
 		return;
 	}
 
-	$('head').append('<style>'
+	$('html').addClass('no-details');
+
+	$('head').prepend('<style>'
 		// Style
+		+'details{display:block}'
 		+'summary{cursor:pointer}'
 		+'details>summary::before{content:"►"}'
 		+'details.open>summary::before{content:"▼"}'
