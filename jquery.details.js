@@ -41,24 +41,21 @@
 	$('head').append('<style>'
 		// Style
 		+'summary{cursor:pointer}'
-		+'details.closed>summary::before{content:"►"}'
+		+'details>summary::before{content:"►"}'
 		+'details.open>summary::before{content:"▼"}'
 
 		// Behaviour
-		// IE7-8 does not support :not selector.
-		// It would allow us not to use .closed
-		+'summary{display:block}'
-		+'details.closed>*{display:none}'
-		+'details.closed>summary{display:block}'
+		+'details:not(.open)>:not(summary){display:none}'
 		+'</style>');
+
 
 	$('details')
 		// Main toggle action
 		.on('open.details', function(){
-			$(this).addClass('open').removeClass('closed').trigger('change.details');
+			$(this).addClass('open').trigger('change.details');
 		})
 		.on('close.details', function(){
-			$(this).addClass('closed').removeClass('open').trigger('change.details');
+			$(this).removeClass('open').trigger('change.details');
 		})
 		.on('toggle.details', function(){
 			var me = $(this);
@@ -101,12 +98,25 @@
 
 		// Initial positions
 		.filter(':not([open])')
-			.addClass('closed')
 			.prop('open', false)
 		.end()
 		.filter('[open]')
 			.addClass('open')
 			.prop('open', true)
 		.end();
+	
+		
+	// IE7-8 does not support :not selector.
+	if ($.browser.msie && $.browser.msie < 9)
+	{
+		$('details')
+			.on('open.details', function(){
+				$(this).children().not('summary').show();
+			})
+			.on('close.details', function(){
+				$(this).children().not('summary').hide();
+			})
+			.filter(':not(.open)').children().not('summary').hide();
+	}
 })(jQuery);
 
