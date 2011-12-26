@@ -25,6 +25,32 @@
 			return support ? this.open : this.hasClass('open');
 	}
 
+	var elements = $('details');
+
+
+
+	/* Animated tags */
+	elements.filter('.animated').each(function(){
+		var me = $(this);
+		var summary = me.children('summary').remove();
+		me.html('<div class=details-wrapper>'+me.html()+'</div>').prepend(summary);
+	}).on('open.details', function(){
+		var wrapper = $(this).children('.details-wrapper');
+		wrapper.hide();
+		setTimeout(function(){ // Simple .height() redraw is not enough for Chrome
+			wrapper.slideDown();
+		}, 0);
+	}).on('close.details', function(){
+		var details = $(this);
+		var wrapper = details.children('.details-wrapper');
+		setTimeout(function(){
+			details.prop('open', true).addClass('open');
+			wrapper.slideUp(function(){
+				details.prop('open', false).removeClass('open');
+			});
+		}, 0);
+	});
+
 	if (support)
 	{
 		// Add our triggers on native implementation
@@ -37,7 +63,7 @@
 		});
 		return;
 	}
-
+	
 	$('html').addClass('no-details');
 
 	$('head').prepend('<style>'
@@ -51,8 +77,7 @@
 		+'details:not(.open)>:not(summary){display:none}'
 		+'</style>');
 
-
-	$('details')
+	elements
 		// Main toggle action
 		.on('open.details', function(){
 			$(this).addClass('open').trigger('change.details');
@@ -112,7 +137,7 @@
 	// IE7-8 does not support :not selector.
 	if ($.browser.msie && $.browser.msie < 9)
 	{
-		$('details')
+		elements
 			.on('open.details', function(){
 				$(this).children().not('summary').show();
 			})
