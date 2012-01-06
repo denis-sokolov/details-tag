@@ -17,4 +17,10 @@ Event handlers:
 	});
 	$('details').details('close', function(){});
 
+To make a tag animated
+	<detail class=animated>
+
+To control animation speeds
+	<detail class=animated data-animation-speed="slow/fast/1000">
+
 This will also manipulate native implemenations.

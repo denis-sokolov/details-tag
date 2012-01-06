@@ -35,17 +35,18 @@
 		var summary = me.children('summary').remove();
 		me.html('<div class=details-wrapper>'+me.html()+'</div>').prepend(summary);
 	}).on('open.details', function(){
-		var wrapper = $(this).children('.details-wrapper');
+		var details = $(this);
+		var wrapper = details.children('.details-wrapper');
 		wrapper.hide();
 		setTimeout(function(){ // Simple .height() redraw is not enough for Chrome
-			wrapper.slideDown();
+			wrapper.slideDown(details.data('animation-speed'));
 		}, 0);
 	}).on('close.details', function(){
 		var details = $(this);
 		var wrapper = details.children('.details-wrapper');
 		setTimeout(function(){
 			details.prop('open', true).addClass('open');
-			wrapper.slideUp(function(){
+			wrapper.slideUp(details.data('animation-speed'), function(){
 				details.prop('open', false).removeClass('open');
 			});
 		}, 0);
