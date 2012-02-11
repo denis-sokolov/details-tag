@@ -10,7 +10,7 @@
 			if (support)
 				this.prop('open', true);
 			else
-				this.trigger('open.details');
+				this.trigger('open');
 		}
 
 		if (command == 'close')
@@ -18,7 +18,7 @@
 			if (support)
 				this.prop('open', false);
 			else
-				this.trigger('close.details');
+				this.trigger('close');
 		}
 
 		if (!command)
