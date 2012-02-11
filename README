@@ -17,6 +17,9 @@ Event handlers:
 	});
 	$('details').on('close', function(){});
 
+Initialize polyfill on some new elements:
+	myDetailsTag.details('init')
+
 To make a tag animated
 	<detail class=animated>
 
