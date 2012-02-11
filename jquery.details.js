@@ -1,5 +1,5 @@
 /*!Denis Sokolov, http://akral.bitbucket.org/details-tag/, denis@sokolov.cc. GPL, MIT */
-;(function($){
+(function($){
 	// Chrome 10 will fail this detection, but Chrome 10 is no longer existing
 	var support = 'open' in document.createElement('details');
 
@@ -23,7 +23,7 @@
 
 		if (!command)
 			return support ? this.open : this.hasClass('open');
-	}
+	};
 
 	var elements = $('details');
 
@@ -67,16 +67,16 @@
 	
 	$('html').addClass('no-details');
 
-	$('head').prepend('<style>'
+	$('head').prepend('<style>'+
 		// Style
-		+'details{display:block}'
-		+'summary{cursor:pointer}'
-		+'details>summary::before{content:"►"}'
-		+'details.open>summary::before{content:"▼"}'
+		'details{display:block}'+
+		'summary{cursor:pointer}'+
+		'details>summary::before{content:"►"}'+
+		'details.open>summary::before{content:"▼"}'+
 
 		// Behaviour
-		+'details:not(.open)>:not(summary){display:none}'
-		+'</style>');
+		'details:not(.open)>:not(summary){display:none}'+
+		'</style>');
 
 	elements
 		// Main toggle action
