@@ -12,10 +12,10 @@ Close a tag
 	$('details').details('close')
 
 Event handlers:
-	$('details').details('open', function(){
+	$('details').on('open', function(){
 		console.log('Opened ', $(this));
 	});
-	$('details').details('close', function(){});
+	$('details').on('close', function(){});
 
 To make a tag animated
 	<detail class=animated>
