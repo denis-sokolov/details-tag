@@ -6,7 +6,7 @@
 
 	// API
 	$.fn.details = function(command) {
-		if (command == 'open')
+		if (command === 'open')
 		{
 			if (support)
 				this.prop('open', true);
@@ -14,7 +14,7 @@
 				this.trigger('open');
 		}
 
-		if (command == 'close')
+		if (command === 'close')
 		{
 			if (support)
 				this.prop('open', false);
@@ -22,7 +22,7 @@
 				this.trigger('close');
 		}
 
-		if (command == 'init')
+		if (command === 'init')
 			init($(this));
 
 		if (!command)
@@ -66,7 +66,7 @@
 			});
 			return;
 		}
-		
+
 		$('html').addClass('no-details');
 
 		$('head').prepend('<style>'+
@@ -115,7 +115,7 @@
 				.keyup(function(e){
 					// 32 - space
 					// 13 - Enter. Opera triggers .click()
-					if (e.keyCode == 32 || (e.keyCode == 13 && !$.browser.opera))
+					if (e.keyCode === 32 || (e.keyCode === 13 && !$.browser.opera))
 						$(this).parent().trigger('toggle');
 				})
 			.end()
@@ -135,8 +135,8 @@
 				.addClass('open')
 				.prop('open', true)
 			.end();
-		
-			
+
+
 		// IE7-8 does not support :not selector.
 		if ($.browser.msie && $.browser.msie < 9)
 		{
