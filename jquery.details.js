@@ -55,17 +55,7 @@
 		});
 
 		if (support)
-		{
-			// Add our triggers on native implementation
-			$('body').on('click', 'summary', function(){
-				var details = $(this).parent();
-				if (details.prop('open'))
-					details.trigger('close');
-				else
-					details.trigger('open');
-			});
 			return;
-		}
 
 		$('html').addClass('no-details');
 
@@ -151,5 +141,17 @@
 		}
 	};
 
-	init($('details'));
+	$(function(){
+		// Add our triggers on native implementation
+		if (support)
+			$('body').on('click', 'summary', function(){
+				var details = $(this).parent();
+				if (details.prop('open'))
+					details.trigger('close');
+				else
+					details.trigger('open');
+			});
+
+		init($('details'));
+	});
 })(jQuery);
