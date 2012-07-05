@@ -25,8 +25,19 @@
 		if (command === 'init')
 			init($(this));
 
-		if (!command)
-			return support ? this.open : this.hasClass('open');
+		if (!command) {
+			if (!support)
+				return this.hasClass('open');
+
+			var open = false;
+			this.each(function(){
+				if (this.open) {
+					open = true;
+					return false;
+				}
+			});
+			return open;
+		}
 	};
 
 	init = function(elements) {
