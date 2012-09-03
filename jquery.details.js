@@ -139,11 +139,13 @@
 
 		.on('open.details', 'details', function(e){
 			$(this).addClass('open').trigger('change.details');
+			e.preventDefault();
 			e.stopPropagation();
 		})
 
 		.on('close.details', 'details', function(e){
 			$(this).removeClass('open').trigger('change.details');
+			e.preventDefault();
 			e.stopPropagation();
 		})
 
