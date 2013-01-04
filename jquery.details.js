@@ -111,10 +111,12 @@
 			// Add our triggers on native implementation
 			$('body').on('click', 'summary', function(){
 				var details = $(this).parent();
-				if (details.prop('open'))
-					details.trigger('close');
-				else
-					details.trigger('open');
+				setTimeout(function(){
+					if (details.prop('open'))
+						details.trigger('close');
+					else
+						details.trigger('open');
+				}, 0);
 			});
 			return;
 		}
@@ -184,4 +186,3 @@
 		init($('details'));
 	});
 })(jQuery);
-
