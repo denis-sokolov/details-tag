@@ -80,9 +80,7 @@
 				.prop('open', true)
 			.end();
 
-		// IE7-8 does not support :not selector.
-		if ($.browser.msie && $.browser.msie < 9)
-			elements.filter(':not(.open)').children().not('summary').hide();
+		elements.filter(':not(.open)').children().not('summary').hide();
 	};
 
 	$(function(){
@@ -131,9 +129,6 @@
 			'summary{cursor:pointer}'+
 			'details>summary::before{content:"►"}'+
 			'details.open>summary::before{content:"▼"}'+
-
-			// Behaviour
-			'details:not(.open)>:not(summary){display:none}'+
 			'</style>'
 		);
 
@@ -167,21 +162,17 @@
 		.on('keyup', 'summary', function(e){
 			// 32 - space
 			// 13 - Enter. Opera triggers .click()
-			if (e.keyCode === 32 || (e.keyCode === 13 && !$.browser.opera))
+			if (e.keyCode === 32 || e.keyCode === 13)
 				$(this).parent().trigger('toggle');
 		});
 
-		// IE7-8 does not support :not selector.
-		if ($.browser.msie && $.browser.msie < 9)
-		{
-			$('body')
-				.on('open.details', 'details', function(){
-					$(this).children().not('summary').show();
-				})
-				.on('close.details', 'details', function(){
-					$(this).children().not('summary').hide();
-				});
-		}
+		$('body')
+			.on('open.details', 'details', function(){
+				$(this).children().not('summary').show();
+			})
+			.on('close.details', 'details', function(){
+				$(this).children().not('summary').hide();
+			});
 
 		init($('details'));
 	});
