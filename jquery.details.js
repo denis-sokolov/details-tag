@@ -1,4 +1,4 @@
-/*!Denis Sokolov, http://akral.bitbucket.org/details-tag/, denis@sokolov.cc. GPL, MIT */
+/*!Denis Sokolov, http://akral.github.io/details-tag/, denis@sokolov.cc. GPL, MIT */
 (function($){
 	var support = 'open' in document.createElement('details'), init;
 
