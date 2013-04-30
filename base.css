@@ -1,0 +1,140 @@
+* { margin: 0; padding: 0; }
+html, body { height: 100% }
+html { font-family: sans-serif; font-size: 120%; overflow-y: scroll; }
+body { line-height: 1.3; word-spacing: 0.25em; }
+abbr { font-size: 85%; letter-spacing: 0.1em }
+cite { font-style: normal }
+h1, h2, h3, h4, h5, h6 { font-weight: normal }
+h1 { padding-top: 4ex; padding-bottom: 1ex; font-size: 190% }
+h2 { padding-top: 3ex; font-size: 150% }
+h3 { padding-top: 1ex; font-size: 120% }
+p { max-width: 45em; margin-bottom: 0.5em; }
+ol ol { margin-left: 2em;}
+
+body { background-color: #ddd; margin: 0;}
+.container { box-sizing: border-box;
+	max-width: 650px; min-height: 100%;
+	margin: 0 auto; padding: 0 70px 300px;
+	background-color: #fafafa;
+}
+code { border: 1px solid #DDD; border-radius: 4px;
+	padding: 0 4px; color: #555; }
+code.block { display: block; white-space: pre-wrap; padding: 14px; margin: 0 -14px 1em;}
+code.block.css, code.block.html4strict, code.block.javascript { white-space: normal }
+details { display: block; margin-top: 1em; }
+summary { cursor: pointer; display: inline-block; border-bottom: 1px dashed; margin-bottom: 0.5em;}
+
+a { color: #05C; text-decoration: none; border-bottom: 1px solid #B2CCF0;}
+a:visited { color: #909; border-color: #E0B2E0; }
+a:hover, a:active { color: #c00; border-color: #F0B2B2; }
+
+.note { font-size: 80%;}
+
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.css  {font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;}
+.css a:link {color: #000060;}
+.css a:hover {background-color: #f0f000;}
+.css .imp {font-weight: bold; color: red;}
+.css .kw1 {color: #000000; font-weight: bold;}
+.css .kw2 {color: #993333;}
+.css .co1 {color: #a1a100;}
+.css .co2 {color: #ff0000; font-style: italic;}
+.css .coMULTI {color: #808080; font-style: italic;}
+.css .es0 {color: #000099; font-weight: bold;}
+.css .br0 {color: #00AA00;}
+.css .sy0 {color: #00AA00;}
+.css .st0 {color: #ff0000;}
+.css .nu0 {color: #cc66cc;}
+.css .re0 {color: #cc00cc;}
+.css .re1 {color: #6666ff;}
+.css .re2 {color: #3333ff;}
+.css .re3 {color: #933;}
+.css span.xtra { display:block; }
+
+.html4strict  {font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;}
+.html4strict a:link {color: #000060;}
+.html4strict a:hover {background-color: #f0f000;}
+.html4strict .imp {font-weight: bold; color: red;}
+.html4strict .kw2 {color: #000000; font-weight: bold;}
+.html4strict .kw3 {color: #000066;}
+.html4strict .es0 {color: #000099; font-weight: bold;}
+.html4strict .br0 {color: #66cc66;}
+.html4strict .sy0 {color: #66cc66;}
+.html4strict .st0 {color: #ff0000;}
+.html4strict .nu0 {color: #cc66cc;}
+.html4strict .sc-1 {color: #808080; font-style: italic;}
+.html4strict .sc0 {color: #00bbdd;}
+.html4strict .sc1 {color: #ddbb00;}
+.html4strict .sc2 {color: #009900;}
+.html4strict span.xtra { display:block; }
+
+.javascript  {font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;}
+.javascript a:link {color: #000060;}
+.javascript a:hover {background-color: #f0f000;}
+.javascript .imp {font-weight: bold; color: red;}
+.javascript .kw1 {color: #000066; font-weight: bold;}
+.javascript .kw2 {color: #003366; font-weight: bold;}
+.javascript .kw3 {color: #000066;}
+.javascript .co1 {color: #006600; font-style: italic;}
+.javascript .co2 {color: #009966; font-style: italic;}
+.javascript .coMULTI {color: #006600; font-style: italic;}
+.javascript .es0 {color: #000099; font-weight: bold;}
+.javascript .br0 {color: #009900;}
+.javascript .sy0 {color: #339933;}
+.javascript .st0 {color: #3366CC;}
+.javascript .nu0 {color: #CC0000;}
+.javascript .me1 {color: #660066;}
+.javascript span.xtra { display:block; }
+
+.php  {font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;}
+.php a:link {color: #000060;}
+.php a:hover {background-color: #f0f000;}
+.php .imp {font-weight: bold; color: red;}
+.php .kw1 {color: #b1b100;}
+.php .kw2 {color: #000000; font-weight: bold;}
+.php .kw3 {color: #990000;}
+.php .kw4 {color: #009900; font-weight: bold;}
+.php .co1 {color: #666666; font-style: italic;}
+.php .co2 {color: #666666; font-style: italic;}
+.php .co3 {color: #0000cc; font-style: italic;}
+.php .co4 {color: #009933; font-style: italic;}
+.php .coMULTI {color: #666666; font-style: italic;}
+.php .es0 {color: #000099; font-weight: bold;}
+.php .es1 {color: #000099; font-weight: bold;}
+.php .es2 {color: #660099; font-weight: bold;}
+.php .es3 {color: #660099; font-weight: bold;}
+.php .es4 {color: #006699; font-weight: bold;}
+.php .es5 {color: #006699; font-weight: bold; font-style: italic;}
+.php .es6 {color: #009933; font-weight: bold;}
+.php .es_h {color: #000099; font-weight: bold;}
+.php .br0 {color: #009900;}
+.php .sy0 {color: #339933;}
+.php .sy1 {color: #000000; font-weight: bold;}
+.php .st0 {color: #0000ff;}
+.php .st_h {color: #0000ff;}
+.php .nu0 {color: #cc66cc;}
+.php .nu8 {color: #208080;}
+.php .nu12 {color: #208080;}
+.php .nu19 {color:#800080;}
+.php .me1 {color: #004000;}
+.php .me2 {color: #004000;}
+.php .re0 {color: #000088;}
+.php span.xtra { display:block; }
+
+.apache  {font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;}
+.apache a:link {color: #000060;}
+.apache a:hover {background-color: #f0f000;}
+.apache .imp {font-weight: bold; color: red;}
+.apache .kw1 {color: #00007f;}
+.apache .kw2 {color: #0000ff;}
+.apache .kw3 {color: #000000; font-weight:bold;}
+.apache .co1 {color: #adadad; font-style: italic;}
+.apache .es0 {color: #000099; font-weight: bold;}
+.apache .br0 {color: #339933;}
+.apache .sy0 {color: #008000;}
+.apache .st0 {color: #7f007f;}
+.apache .nu0 {color: #ff0000;}
+.apache span.xtra { display:block; }

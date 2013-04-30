@@ -1,0 +1,111 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>details-tag</title>
+<link rel=stylesheet href="base.css">
+<link rel=stylesheet href="details-tag.css">
+<div class=container>
+	<h1>
+		&lt;details&gt; polyfill
+	</h1>
+	<p>
+		This polyfill allows you to use expanding boxes on your webpages.
+	</p>
+	<details>
+		<summary>Usage</summary>
+		<p>
+			Use <abbr>HTML5</abbr> tags <code>details</code> and <code>summary</code>
+			like this:
+		</p>
+		<code class="block html4strict"><span class="sc2">&lt;summary&gt;</span>Read more<span class="sc2">&lt;<span class="sy0">/</span>summary&gt;</span><br />
+<span class="sc2">&lt;details&gt;</span><br />
+&nbsp; <span class="sc2">&lt;<a href="http://december.com/html/4/element/p.html"><span class="kw2">p</span></a>&gt;</span><br />
+&nbsp; &nbsp; Additional information,<br />
+&nbsp; &nbsp; which is in general useful,<br />
+&nbsp; &nbsp; but could be usefully hidden.<br />
+&nbsp; <span class="sc2">&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/p.html"><span class="kw2">p</span></a>&gt;</span><br />
+<span class="sc2">&lt;<span class="sy0">/</span>details&gt;</span></code>
+		<p>
+			You can style the tag using <abbr>CSS</abbr>.
+			Here are the styling hooks with some default styles:
+		</p>
+		<code class="block css"><span class="coMULTI">/* WebKit native support*/</span><br />
+details summary<span class="re2">::-webkit-details-marker </span><span class="br0">&#123;</span> <span class="br0">&#125;</span><br />
+<br />
+<span class="coMULTI">/* Not supporting browsers */</span><br />
+<span class="re1">.no-details</span> details <span class="br0">&#123;</span> <span class="kw1">display</span><span class="sy0">:</span> <span class="kw2">block</span> <span class="br0">&#125;</span><br />
+<span class="re1">.no-details</span> details <span class="sy0">&gt;</span> summary<span class="re2">::before </span><span class="br0">&#123;</span> <span class="kw1">content</span><span class="sy0">:</span><span class="st0">&quot;►&quot;</span> <span class="br0">&#125;</span><br />
+<span class="re1">.no-details</span> details<span class="re1">.open</span> <span class="sy0">&gt;</span> summary<span class="re2">::before </span><span class="br0">&#123;</span>
+&nbsp;&nbsp;<span class="kw1">content</span><span class="sy0">:</span><span class="st0">&quot;▼&quot;</span> <span class="br0">&#125;</span></code>
+		<p>
+			There is also a simple Javascript <abbr>API</abbr>:
+		</p>
+		<code class="block javascript"><span class="co1">// My &lt;details&gt; tag (can be a collection)</span><br />
+<span class="kw2">var</span> el <span class="sy0">=</span> $<span class="br0">&#40;</span><span class="st0">'#foo'</span><span class="br0">&#41;</span><span class="sy0">;</span><br />
+<br />
+<span class="co1">// Open the tags</span><br />
+el.<span class="me1">details</span><span class="br0">&#40;</span><span class="st0">'open'</span><span class="br0">&#41;</span><span class="sy0">;</span><br />
+<br />
+<span class="co1">// Close the tags</span><br />
+el.<span class="me1">details</span><span class="br0">&#40;</span><span class="st0">'close'</span><span class="br0">&#41;</span><span class="sy0">;</span><br />
+<br />
+<span class="co1">// Get a boolean value if the tag is open</span><br />
+el.<span class="me1">details</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br />
+<br />
+<span class="co1">// Bind triggers</span><br />
+el.<span class="me1">on</span><span class="br0">&#40;</span><span class="st0">'open'</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br />
+el.<span class="me1">on</span><span class="br0">&#40;</span><span class="st0">'close'</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br />
+<br />
+<span class="co1">// Init polyfill on new elements</span><br />
+el.<span class="me1">details</span><span class="br0">&#40;</span><span class="st0">'init'</span><span class="br0">&#41;</span><span class="sy0">;</span></code>
+	</details>
+	<details class=animated>
+		<summary>Animated tags</summary>
+		<p>
+			We can also animate details tags.
+		</p>
+		<p>
+			Simply add a class <code>animated</code> to your <code>&lt;details&gt;</code> tag and that&rsquo;s it.
+		</p>
+		<p>
+			Sliding down will be added on both native and polyfilled versions.
+		</p>
+		<p>
+			To control the animation speed, add <code>data-animation-speed</code> attribute to your <code>&lt;details&gt;</code>
+			tag. Anything that jQuery <code><a href="http://api.jquery.com/slidedown/">slideDown</a></code> takes works.
+		</p>
+		<p>
+			Notice, that animation requires a creation of a wrapper to contain all children nodes,
+			so be careful with your <abbr>CSS</abbr> children selectors!
+		</p>
+	</details>
+	<details>
+		<summary>Installation</summary>
+		<p>
+			This plugin requires jQuery, version at least 1.7.
+		</p>
+		<p>
+			<a href="jquery.details-1.6.min.js">Take the code</a> <small>(2.3 kb)</small> and
+			connect it to your page.
+		</p>
+	</details>
+	<details>
+		<summary>Meta-information</summary>
+		<p>
+			License: GPL, MIT.
+		</p>
+		<p>
+			Code: <a href="https://bitbucket.org/Akral/details-tag">hosted on Bitbucket</a>.
+		</p>
+		<p>
+			Last version: 1.6, packed on <time datetime="2012-09-02" pubdate>Sep 2nd, 2012</time>.
+		</p>
+		<p>
+			Author: <a href="http://sokolov.cc">Denis Sokolov</a>.
+		</p>
+		<p>
+			Inspired by work of <a href="https://github.com/mathiasbynens/jquery-details">Mathias Bynens</a>.
+		</p>
+	</details>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="jquery.details-1.6.min.js"></script>
